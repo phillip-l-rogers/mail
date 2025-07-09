@@ -124,7 +124,7 @@ function view_email(mailbox, id) {
     // Handle the single emails received in JSON response
     .then((email) => {
       const emailsView = document.querySelector("#emails-view");
-      if (!email.read) {
+      if (mailbox != "sent" && !email.read) {
         // Use fetch (post) to mark the email as read
         // Ignore the response
         fetch(`/emails/${id}`, {

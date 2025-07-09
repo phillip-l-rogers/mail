@@ -159,7 +159,7 @@ function view_email(id) {
       });
       container.appendChild(replyBtn);
       // If not the sender, then add an Archive/Unarchive button
-      if (email.user === email.sender && email.archived !== undefined) {
+      if (email.user !== email.sender && email.archived !== undefined) {
         const archiveBtn = document.createElement("button");
         archiveBtn.id = "archive-btn";
         if (email.archived) {

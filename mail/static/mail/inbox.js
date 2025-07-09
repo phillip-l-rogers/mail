@@ -46,7 +46,6 @@ function load_mailbox(mailbox) {
       const emailsView = document.querySelector("#emails-view");
       emails.forEach((email) => {
         // Loop through emails and add a summary in a new div tag
-        console.log(email);
         // email address span block
         const address = document.createElement("span");
         // email address style - read=normal, unread=bold
@@ -77,7 +76,7 @@ function load_mailbox(mailbox) {
         emailDiv.appendChild(headerDiv);
         emailDiv.appendChild(timestampDiv);
         // When clicked, show the full email
-        emailDiv.addEventListener("click", () => view_email(mailbox, email.id));
+        emailDiv.addEventListener("click", () => view_email(email.id));
         // Add the email item div tag to the emails view
         emailsView.appendChild(emailDiv);
       });
@@ -102,7 +101,6 @@ function send_email(event) {
     .then((result) => {
       if (result.message) {
         // After sending successfully, load sent mailbox
-        console.log(result.message);
         load_mailbox("sent");
       } else if (result.error) {
         // After sending unsuccessfully, show error to the user
@@ -111,7 +109,7 @@ function send_email(event) {
     });
 }
 
-function view_email(mailbox, id) {
+function view_email(id) {
   // Show the emails view and hide compose views
   document.querySelector("#emails-view").style.display = "block";
   document.querySelector("#compose-view").style.display = "none";
@@ -124,7 +122,7 @@ function view_email(mailbox, id) {
     // Handle the single emails received in JSON response
     .then((email) => {
       const emailsView = document.querySelector("#emails-view");
-      if (mailbox != "sent" && !email.read) {
+      if (!email.read) {
         // Use fetch (post) to mark the email as read
         // Ignore the response
         fetch(`/emails/${id}`, {
@@ -161,7 +159,7 @@ function view_email(mailbox, id) {
       });
       container.appendChild(replyBtn);
       // If not the sender, then add an Archive/Unarchive button
-      if (mailbox != "sent" && email.archived !== undefined) {
+      if (email.user === email.sender && email.archived !== undefined) {
         const archiveBtn = document.createElement("button");
         archiveBtn.id = "archive-btn";
         if (email.archived) {

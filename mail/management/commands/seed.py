@@ -31,6 +31,7 @@ class Command(BaseCommand):
 
         # Create a dummy email
         Email.objects.create(
+            user=user3,
             sender=user1,
             subject="Welcome to Mail App!",
             body="This is a test email sent from Alice to Test User.",
@@ -38,6 +39,7 @@ class Command(BaseCommand):
         ).recipients.add(user3)
         # Create a dummy email
         Email.objects.create(
+            user=user3,
             sender=user2,
             subject="Welcome to Mail App!",
             body="This is a test email sent from Bob to Test User.",

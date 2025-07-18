@@ -1,9 +1,11 @@
 # mail/management/commands/seed.py
 
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 
 from mail.models import Email  # Adjust if your model is named differently
+
+User = get_user_model()
 
 
 class Command(BaseCommand):

@@ -29,7 +29,7 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 
 ## ▶️ Live Demo
 
-- 🌐 Live site: [https://commerce-2onf.onrender.com](https://commerce-2onf.onrender.com)
+- 🌐 Live site: [https://mail-vnvy.onrender.com](https://mail-vnvy.onrender.com)
 - 📺 Video demo: [Watch on YouTube](https://youtu.be/xYj7ZWQYy-A)
 
 ---

@@ -13,37 +13,39 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Create users
-        user1, _ = User.objects.get_or_create(
-            username="alice", email="alice@example.com"
-        )
-        user1.set_password("testpass")
-        user1.save()
-
-        user2, _ = User.objects.get_or_create(username="bob", email="bob@example.com")
-        user2.set_password("testpass")
-        user2.save()
-
-        user3, _ = User.objects.get_or_create(
-            username="test_user", email="test_user@example.com"
-        )
-        user3.set_password("testpass")
-        user3.save()
-
-        # Create a dummy email
+        users = [
+            {"username": "alice", "email": "alice@example.com", "password": "testpass"},
+            {"username": "bob", "email": "bob@example.com", "password": "testpass"},
+            {
+                "username": "charlie",
+                "email": "charlie@example.com",
+                "password": "testpass",
+            },
+        ]
+        for u in users:
+            if not User.objects.filter(username=u["username"]).exists():
+                User.objects.create_user(
+                    username=u["username"], email=u["email"], password=u["password"]
+                )
+        alice = User.objects.get(username="alice")
+        bob = User.objects.get(username="bob")
+        charlie = User.objects.get(username="charlie")
+        self.stdout.write(
+            self.style.SUCCESS("✅ Users created")
+        )  # Create a dummy email
         Email.objects.create(
-            user=user3,
-            sender=user1,
+            user=charlie,
+            sender=alice,
             subject="Welcome to Mail App!",
             body="This is a test email sent from Alice to Test User.",
             timestamp="2025-07-17 15:00",
-        ).recipients.add(user3)
+        ).recipients.add(charlie)
         # Create a dummy email
         Email.objects.create(
-            user=user3,
-            sender=user2,
+            user=charlie,
+            sender=bob,
             subject="Welcome to Mail App!",
             body="This is a test email sent from Bob to Test User.",
             timestamp="2025-07-18 15:00",
-        ).recipients.add(user3)
-
+        ).recipients.add(charlie)
         self.stdout.write(self.style.SUCCESS("Dummy data seeded."))

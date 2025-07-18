@@ -20,9 +20,10 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 ## 📸 Screenshots
 
 <p float="left">
-  <img src="screenshots/home.png" height="300"/>
-  <img src="screenshots/create.png" height="300"/>
-  <img src="screenshots/listing.png" height="300"/>
+  <img src="screenshots/inbox.png" height="300"/>
+  <img src="screenshots/compose_mail.png" height="300"/>
+  <img src="screenshots/mail_detail.png" height="300"/>
+  <img src="screenshots/sent_mail.png" height="300"/>
 </p>
 
 ---

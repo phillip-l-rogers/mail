@@ -28,6 +28,15 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 
 ---
 
+## 🛠️ Tech Stack
+
+- **Backend:** Django (Python)
+- **Frontend:** HTML, CSS, JavaScript
+- **Database:** SQLite
+- **AJAX:** Fetch API for asynchronous operations
+
+---
+
 ## ▶️ Live Demo
 
 - 🌐 Live site: [https://mail-vnvy.onrender.com](https://mail-vnvy.onrender.com)
@@ -35,12 +44,16 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 
 ---
 
-## 🛠️ Tech Stack
+## 🧪 Testing Tips
 
-- **Backend:** Django (Python)
-- **Frontend:** HTML, CSS, JavaScript
-- **Database:** SQLite
-- **AJAX:** Fetch API for asynchronous operations
+- Use pre-seeded accounts to test:
+  - alice@example.com / testpass
+  - bob@example.com / testpass
+  - test_user@example.com / testpass
+- Test compose and send by creating multiple users
+- Try archiving/unarchiving from inbox
+- View email details and use reply functionality
+- Open browser console to inspect network requests (AJAX)
 
 ---
 
@@ -82,19 +95,6 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 
    `http://127.0.0.1:8000/` in your browser.
    
----
-
-## 🧪 Testing Tips
-
-- Use pre-seeded accounts to test:
-  - alice@example.com / testpass
-  - bob@example.com / testpass
-  - test_user@example.com / testpass
-- Test compose and send by creating multiple users
-- Try archiving/unarchiving from inbox
-- View email details and use reply functionality
-- Open browser console to inspect network requests (AJAX)
-
 ---
 
 ## 📁 Project Structure

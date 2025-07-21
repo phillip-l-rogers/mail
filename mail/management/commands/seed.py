@@ -14,22 +14,18 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         # Create users
         users = [
-            {"username": "alice", "email": "alice@example.com", "password": "testpass"},
-            {"username": "bob", "email": "bob@example.com", "password": "testpass"},
-            {
-                "username": "charlie",
-                "email": "charlie@example.com",
-                "password": "testpass",
-            },
+            {"email": "alice@example.com", "password": "testpass"},
+            {"email": "bob@example.com", "password": "testpass"},
+            {"email": "charlie@example.com", "password": "testpass"},
         ]
         for u in users:
-            if not User.objects.filter(username=u["username"]).exists():
+            if not User.objects.filter(username=u["email"]).exists():
                 User.objects.create_user(
-                    username=u["username"], email=u["email"], password=u["password"]
+                    username=u["email"], email=u["email"], password=u["password"]
                 )
-        alice = User.objects.get(username="alice")
-        bob = User.objects.get(username="bob")
-        charlie = User.objects.get(username="charlie")
+        alice = User.objects.get(username="alice@example.com")
+        bob = User.objects.get(username="bob@example.com")
+        charlie = User.objects.get(username="charlie@example.com")
         self.stdout.write(
             self.style.SUCCESS("✅ Users created")
         )  # Create a dummy email

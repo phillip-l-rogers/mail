@@ -49,7 +49,7 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 - Use pre-seeded accounts to test:
   - alice@example.com / testpass
   - bob@example.com / testpass
-  - test_user@example.com / testpass
+  - charlie@example.com / testpass
 - Test compose and send by creating multiple users
 - Try archiving/unarchiving from inbox
 - View email details and use reply functionality

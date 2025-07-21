@@ -34,6 +34,7 @@ A Gmail-style single-page webmail app that supports inbox management, email comp
 - **Frontend:** HTML, CSS, JavaScript
 - **Database:** SQLite
 - **AJAX:** Fetch API for asynchronous operations
+- **Auth:** Django’s built-in authentication system
 
 ---
 

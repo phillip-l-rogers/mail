@@ -1,4 +1,4 @@
-# 📬 Mail Client
+# 📬 Mail
 
 **Built for [CS50’s Web Programming with Python and JavaScript (CS50W)](https://cs50.harvard.edu/web/).**  
 A Gmail-style single-page webmail app that supports inbox management, email composition, archiving, and reply features using JavaScript and Django.
